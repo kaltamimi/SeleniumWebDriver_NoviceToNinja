@@ -1,4 +1,4 @@
-package calendar;
+package tutorial;
 
 import org.junit.After;
 import org.junit.Before;
@@ -11,7 +11,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class CalendarSelection {
+public class Autocomplete {
+
     private WebDriver driver;
     private String baseUrl;
 
@@ -19,7 +20,7 @@ public class CalendarSelection {
     public void setUp() throws Exception {
         System.setProperty("webdriver.gecko.driver", "E:\\Udemy tutorials\\geckodriver-v0.24.0-win64\\geckodriver.exe");
         driver = new FirefoxDriver();
-        baseUrl = "http://www.expedia.com/";
+        baseUrl = "http://www.southwest.com/";
 
         // Maximize the browser's window
         driver.manage().window().maximize();
@@ -28,23 +29,28 @@ public class CalendarSelection {
 
     @Test()
     public void test() throws Exception {
-        //.//div[@class='datepicker-cal-month'][position()=1]//button[text()=24]
         driver.get(baseUrl);
-        // Click flights tab
-        driver.findElement(By.xpath("//button[@id='tab-package-tab-hp']/span[@class='icons-container']")).click();
-        // Find departing field
+        String searchingText = "New York/Newark, NJ - EWR";
+        String partialText = "New York";
 
-        WebElement departingField = driver.findElement(By.id("package-departing-hp-package"));
-        // Click departing field
-        departingField.click();
+        WebElement text = driver.findElement(By.cssSelector("#LandingPageAirSearchForm_originationAirportCode"));
+        text.sendKeys(partialText);
+
+        WebElement element = driver.findElement(By.id("air-city-departure-menu"));
+        List<WebElement> results = element.findElements(By.tagName("li"));
+        int size = results.size();
+
+        System.out.println("The size of the list is: " + size);
+
+        for (int i = 0; i < size; i++) {
+            System.out.println(results.get(i).getText());
+        }
+
         Thread.sleep(3000);
-
-        WebElement calMonth = driver.findElement(By.xpath("//div[@class='datepicker-cal-month'][position()=1]"));
-        List<WebElement> allValidDate = calMonth.findElements(By.tagName("button"));
-
-        for (WebElement date: allValidDate){
-            if (date.getText().equals("26")){
-                date.click();
+        for (WebElement result : results) {
+            if (result.getText().equals(searchingText)) {
+                result.click();
+                System.out.println("Selected: " + result.getText());
                 break;
             }
         }
