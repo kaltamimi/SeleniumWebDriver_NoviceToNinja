@@ -1,0 +1,7 @@
+20:24:32.942 DEBUG log4jsection.LoggingDemo -Debug Message Logged
+20:24:32.945 INFO  log4jsection.LoggingDemo -Info Message Logged
+20:24:32.945 ERROR log4jsection.LoggingDemo -Error Message Logged
+20:24:32.945 FATAL log4jsection.LoggingDemo -Fatal Message Logged
+20:24:52.480 INFO  letskodeit.LoggingFile -Info Message Logged
+20:24:52.486 ERROR letskodeit.LoggingFile -Error Message Logged
+20:24:52.487 FATAL letskodeit.LoggingFile -Fatal Message Logged
