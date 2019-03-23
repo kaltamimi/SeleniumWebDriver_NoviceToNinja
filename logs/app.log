@@ -5,3 +5,6 @@
 20:24:52.480 INFO  letskodeit.LoggingFile -Info Message Logged
 20:24:52.486 ERROR letskodeit.LoggingFile -Error Message Logged
 20:24:52.487 FATAL letskodeit.LoggingFile -Fatal Message Logged
+21:07:55.963 INFO  letskodeit.LoggingFile -Info Message Logged
+21:07:55.966 ERROR letskodeit.LoggingFile -Error Message Logged
+21:07:55.966 FATAL letskodeit.LoggingFile -Fatal Message Logged
