@@ -11,6 +11,7 @@ public class LoggingConsole {
         log.debug("Debug Message Logged");
         log.error("Error Message Logged");
         log.fatal("Fatal Message Logged");
+        bdjkab
     }
 
 }
